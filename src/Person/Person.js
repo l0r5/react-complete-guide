@@ -19,8 +19,6 @@ const person = (props) => {
     `;
 
     return (
-        // <div className={"Person"} style={style}>
-
         <StyledDiv>
             < p
                 onClick={props.click}> I
