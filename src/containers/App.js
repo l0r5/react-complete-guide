@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import classes from './App.css';
-import Person from '../components/Persons/Person/Person'
+import Persons from '../components/Persons/Persons'
 
 class App extends Component {
     state = {
@@ -15,7 +15,7 @@ class App extends Component {
 
     nameChangedHandler = (event, id) => {
         const personIndex = this.state.persons.findIndex(p => {
-            return p.id  === id;
+            return p.id === id;
         });
 
         const person = {
@@ -50,15 +50,11 @@ class App extends Component {
         if (this.state.showPersons) {
             persons = (
                 <div>
-                    {this.state.persons.map((person, index) => {
-                        return <Person
-                            key={person.id}
-                            name={person.name}
-                            age={person.age}
-                            click={() => this.deletePersonHandler(index)}
-                            changed={event => this.nameChangedHandler(event, person.id)}
-                        />
-                    })}
+                    <Persons
+                        persons={this.state.persons}
+                        clicked={this.deletePersonHandler}
+                        changed={this.nameChangedHandler}
+                    />
                 </div>
             );
             btnClass = classes.Red;
@@ -77,7 +73,8 @@ class App extends Component {
                 <p className={assignedClasses.join(' ')}>This is really working!</p>
                 <button
                     className={btnClass}
-                    onClick={this.togglePersonsHandler}>Toggle Persons</button>
+                    onClick={this.togglePersonsHandler}>Toggle Persons
+                </button>
                 {persons}
             </div>
         );
