@@ -2,6 +2,17 @@ import React, {Component} from 'react';
 import Person from './Person/Person';
 
 class Persons extends Component {
+
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('[Persons.js] componentDidUpdate');
+        console.log(snapshot);
+    }
+
+    componentWillUnmount() {
+        console.log('[Persons.js] componentWillUnmount');
+    }
+
     render() {
         console.log('[Persons.js] rendering...')
         return (
