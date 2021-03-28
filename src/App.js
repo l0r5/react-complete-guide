@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import classes from './App.css';
 import Person from './Person/Person'
 
-
-
 class App extends Component {
     state = {
         persons: [
@@ -17,7 +15,7 @@ class App extends Component {
 
     nameChangedHandler = (event, id) => {
         const personIndex = this.state.persons.findIndex(p => {
-            return p.id === id;
+            return p.id  === id;
         });
 
         const person = {
