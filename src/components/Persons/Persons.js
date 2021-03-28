@@ -3,6 +3,16 @@ import Person from './Person/Person';
 
 class Persons extends Component {
 
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('[Persons.js] shouldComponentUpdate');
+        return nextProps.persons !== this.props.persons;
+    }
+
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log('[Persons.js] getSnapshotBeforeUpdate');
+        return {message: 'Snapshot!'};
+
+    }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('[Persons.js] componentDidUpdate');
